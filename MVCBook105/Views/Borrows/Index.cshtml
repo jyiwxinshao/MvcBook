@@ -1,0 +1,68 @@
+﻿@model MVCBook105.Models.BorrowISBNViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Borrow</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Borrows" asp-action="Index" method="get">
+    <p>
+        <select asp-for="BorrowISBN" asp-items="Model.ISBNs">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="筛选" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Borrows![0].serialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Borrows![0].ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Borrows![0].readerNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Borrows![0].loanDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Borrows![0].returnDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Borrows!) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.serialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.readerNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loanDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.returnDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
