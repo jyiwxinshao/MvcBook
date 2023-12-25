@@ -5,7 +5,6 @@
 借还:流水号、ISBN、读者号、借出日期、归还日期<br>
 **`下载必看：`**<br>
 **`框架为.NET 8.0,务必更新至最新Visual Studio`**<br>
-`1.删除Migrations文件夹`<br>
-`2.工具>NuGet包管理器>程序包管理器控制台`<br>
-`3.输入Update-Database`<br>
-`4.运行`<br>
+`1.工具>NuGet包管理器>程序包管理器控制台`<br>
+`2.输入Update-Database`<br>
+`3.运行`<br>
